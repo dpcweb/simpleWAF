@@ -1,7 +1,6 @@
 <?php
 class simpleWAF
 {
-	protected $logs = false;
 	protected $parm;
 	protected $ip;
 	protected $vulns = ['union', 'by', '1 or 1', 'select'];
@@ -41,7 +40,7 @@ class simpleWAF
 	public function logs($vuln, $where, $ip)
 	{
 		$message = "ip: [{$ip}] used [{$vuln}] on [{$where}] [".date("F j, Y, g:i a")."] \n";
-		file_put_contents("logs.txt",  $message);
+		file_put_contents("logs.txt",  $message, FILE_APPEND);
 	}
 
 	/**
